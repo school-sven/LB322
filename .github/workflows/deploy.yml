@@ -7,7 +7,7 @@ on:
     - master
 
 jobs:
-   Build:
+   gh-pages-build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout

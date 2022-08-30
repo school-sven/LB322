@@ -6,8 +6,8 @@ on:
       - 'main'
       - 'master'
       - 'gh-pages'
+      
 jobs:
-
    tests:
     runs-on: ubuntu-latest
     steps:

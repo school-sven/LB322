@@ -50,7 +50,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "baseHref": "./https://svenmaerki.github.io/LB322/",
+              "baseHref": "https://svenmaerki.github.io/LB322/",
               "outputHashing": "all"
             },
             "development": {

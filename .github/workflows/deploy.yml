@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-   gh-pages-build:
+   test-build-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout

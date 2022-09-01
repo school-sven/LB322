@@ -23,8 +23,8 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+          persist-credentials: false
+          fetch-depth: 0 
 
       - name: Install Dependencies
         run:  npm ci
@@ -48,3 +48,19 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }} 
+
+  tests:
+    needs: [linting]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run:  npm install   
+
+    - name: Install Angular CLI
+      run:  npm install -g @angular/cli
+
+    - name: Run tests
+      run:  ng test --watch=false --browsers=ChromeHeadless

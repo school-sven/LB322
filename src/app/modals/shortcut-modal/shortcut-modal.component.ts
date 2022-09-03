@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-shortcut-modal',
@@ -7,10 +8,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ShortcutModalComponent implements OnInit {
 
-  constructor() {
+  constructor(private activeModal: BsModalService) {
   }
 
   ngOnInit(): void {
+  }
+
+  closeModal() {
+    this.activeModal.hide();
   }
 
 }

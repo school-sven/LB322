@@ -11,12 +11,11 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private loginService: LoginService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    this.loginService.getLoginStatus().subscribe((value: boolean) => {
-      this.isLoggedIn = value;
-    });
+    this.loginService.getLoginStatus().subscribe((value: boolean) => this.isLoggedIn = value);
   }
 
 }

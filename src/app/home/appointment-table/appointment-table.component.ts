@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { appointment } from 'src/app/shared/models/appointment.model';
+import { tableHeaders } from './appointment-table.data';
 
 @Component({
   selector: 'app-appointment-table',
@@ -8,6 +9,7 @@ import { appointment } from 'src/app/shared/models/appointment.model';
 })
 export class AppointmentTableComponent implements OnInit {
   @Input() appointments!: appointment[];
+  tableHeaders = tableHeaders;
 
   constructor() { }
 

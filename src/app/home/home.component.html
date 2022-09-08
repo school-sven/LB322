@@ -1,12 +1,13 @@
 <div *ngIf="!isLoading" class="m-5">
   <div *ngIf="isLoggedIn">
     <div class="card">
-      <div class="card-header">Gebuchte Termine</div>
+      <div class="card-header">Meine gebuchten Termine</div>
       <div class="card-body">
-        <app-appointment-table [appointments]="appointments"></app-appointment-table>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-success float-end" type="button">Hinzufügen</button>
+        <div class="card">
+          <div class="card-body">
+            <app-appointment-table [appointments]="appointments"></app-appointment-table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

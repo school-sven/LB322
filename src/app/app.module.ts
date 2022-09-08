@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ShortcutModalComponent} from './modals/shortcut-modal/shortcut-modal.component';
 import { AppointmentComponent } from './home/appointment/appointment.component';
 import { AppointmentTableComponent } from './home/appointment-table/appointment-table.component';
+import { PositionComponent } from './position/position.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AppointmentTableComponent } from './home/appointment-table/appointment-
     LoginComponent,
     ShortcutModalComponent,
     AppointmentComponent,
-    AppointmentTableComponent
+    AppointmentTableComponent,
+    PositionComponent
   ],
   imports: [
     BrowserModule,

@@ -32,7 +32,7 @@ export class AppointmentComponent implements OnInit, OnDestroy {
 
   deleteAppointment() {
     this.appointmentService.deleteAppointment(this.appointment.id);
-    this.router.navigate(['home'])
+    this.router.navigate(['/home'])
   }
 
   ngOnDestroy() {

@@ -1,0 +1,13 @@
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: auto;
+  width: auto;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: auto;
+  width: auto;
+}

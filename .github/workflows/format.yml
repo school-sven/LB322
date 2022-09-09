@@ -1,25 +1,23 @@
-name: auto-format
-on: pull_request
-    
+name: Format code
+
+on:
+  pull_request:
+    branches: [main]
+
 jobs:
-  format:
-    # Check if the PR is not from a fork
-    if: github.event.pull_request.head.repo.full_name == github.repository
+  prettier:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          ref: ${{ github.head_ref }}
-      - name: prettier
-        run: npx prettier --write src/**/*.js
-      - name: Check for modified files
-        id: git-check
-        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
-      - name: Push changes
-        if: steps.git-check.outputs.modified == 'true'
-        run: |
-          git config --global user.name 'Peter Evans'
-          git config --global user.email 'peter-evans@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.TOKEN }}@github.com/${{ github.repository }}
-          git commit -am "Automated changes"
-          git push
+          ref: ${{ github.head_ref }}$
+          fetch-depth: 0
+
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.2
+        with:
+          # This part is also where you can pass other options, for example:
+          prettier_options: --write **/*.{js,md}
+          only_changed: True

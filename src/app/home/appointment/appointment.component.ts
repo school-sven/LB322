@@ -31,7 +31,7 @@ export class AppointmentComponent implements OnInit, OnDestroy {
   }
 
   deleteAppointment() {
-    this.appointmentService.deleteAppointment(this.appointment.id);
+    this.appointmentService.deleteAppointment(this.id);
     this.router.navigate(['/home'])
   }
 

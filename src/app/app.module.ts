@@ -13,6 +13,7 @@ import {ShortcutModalComponent} from './modals/shortcut-modal/shortcut-modal.com
 import { AppointmentComponent } from './home/appointment/appointment.component';
 import { AppointmentTableComponent } from './home/appointment-table/appointment-table.component';
 import { PositionComponent } from './position/position.component';
+import { OpeningHoursComponent } from './opening-hours/opening-hours.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PositionComponent } from './position/position.component';
     ShortcutModalComponent,
     AppointmentComponent,
     AppointmentTableComponent,
-    PositionComponent
+    PositionComponent,
+    OpeningHoursComponent
   ],
   imports: [
     BrowserModule,

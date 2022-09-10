@@ -5,9 +5,14 @@
       <div class="card-body">
         <div class="card">
           <div class="card-body">
-            <app-appointment-table [appointments]="appointments"></app-appointment-table>
+            <app-appointment-table
+              [appointments]="appointments"
+            ></app-appointment-table>
           </div>
         </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-success float-end" type="button" routerLink="/add-termin">Termin reservieren</button>
       </div>
     </div>
   </div>

@@ -1,21 +1,53 @@
 <div class="card m-5">
   <div class="card-body">
-    <form [formGroup]="form">
-      <div class="mb-3">
-        <label for="username" class="form-label">E-Mail Adresse</label>
-        <input type="text" class="form-control" id="username" formControlName="username">
-        <div *ngIf="username.hasError('email')" class="alert alert-warning mt-3">
-          <span>E-Mail muss valide sein</span>
-        </div>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="form">
+          <div class="mb-3">
+            <label for="username" class="form-label">E-Mail Adresse</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              formControlName="username"
+            />
+            <div
+              *ngIf="username.hasError('email')"
+              class="alert alert-warning mt-3"
+            >
+              <span>E-Mail muss valide sein</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Passwort</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+            <div
+              *ngIf="password.hasError('minlength')"
+              class="alert alert-warning mt-3"
+            >
+              <span>Passwort muss mindestens 6 Zeichen enthalten</span>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Passwort</label>
-        <input type="password" class="form-control" id="password" formControlName="password">
-        <div *ngIf="password.hasError('minlength')" class="alert alert-warning mt-3">
-          <span>Passwort muss mindestens 6 Zeichen enthalten</span>
-        </div>
+      <div class="card-footer">
+        <button type="button" class="btn float-start" routerLink="home">
+          Zurück
+        </button>
+        <button
+          (click)="login()"
+          [disabled]="form.invalid"
+          type="button"
+          class="btn btn-success float-end"
+        >
+          Login
+        </button>
       </div>
-      <button (click)="login()" [disabled]="form.invalid" type="button" class="btn btn-success float-end">Login</button>
-    </form>
+    </div>
   </div>
 </div>

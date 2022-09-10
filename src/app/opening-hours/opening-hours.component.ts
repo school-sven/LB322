@@ -4,7 +4,6 @@ import { freeDays, openingHours } from './opening-hours.data';
 @Component({
   selector: 'app-opening-hours',
   templateUrl: './opening-hours.component.html',
-  styleUrls: ['./opening-hours.component.css']
 })
 export class OpeningHoursComponent implements OnInit {
   openingHours: {

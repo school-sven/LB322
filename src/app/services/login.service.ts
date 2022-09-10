@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
   private isLoggedIn: BehaviorSubject<boolean>;
 
   constructor() {
-    // this.isLoggedIn = new BehaviorSubject<boolean>(false);
-    this.isLoggedIn = new BehaviorSubject<boolean>(true);
+    this.isLoggedIn = new BehaviorSubject<boolean>(false);
   }
 
   getLoginStatus(): Observable<boolean> {
@@ -17,8 +16,6 @@ export class LoginService {
   }
 
   changeLoginStatus() {
-    // this.isLoggedIn.next(!this.isLoggedIn.value);
-    this.isLoggedIn.next(true);
+    this.isLoggedIn.next(!this.isLoggedIn.value);
   }
-
 }

@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {LoginService} from "../services/login.service";
-import {ModalService} from "../services/modal.service";
-import {BsModalRef} from 'ngx-bootstrap/modal';
-import {ShortcutModalComponent} from "../modals/shortcut-modal/shortcut-modal.component";
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login.service';
+import { ToastService } from '../services/toast.service';
+import { ToasterPosition } from '../shared/models/toast.model';
 
 @Component({
   selector: 'app-navbar',
@@ -10,24 +9,28 @@ import {ShortcutModalComponent} from "../modals/shortcut-modal/shortcut-modal.co
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
-  modalRef!: BsModalRef;
 
   constructor(
     private loginService: LoginService,
-    private modalService: ModalService
-  ) {
-  }
+    private toastService: ToastService
+  ) {}
 
   ngOnInit(): void {
-    this.loginService.getLoginStatus().subscribe((value: boolean) => this.isLoggedIn = value);
+    this.loginService
+      .getLoginStatus()
+      .subscribe((value: boolean) => (this.isLoggedIn = value));
   }
 
   changeLoginStatus() {
     this.loginService.changeLoginStatus();
+    this.toastService.successToastr(
+      this.isLoggedIn
+        ? 'Sie haben sich erfolgreich angemeldet.'
+        : 'Sie haben sich erfolgreich abgemeldet.',
+      'Information',
+      ToasterPosition.bottomLeft,
+      2000,
+      true
+    );
   }
-
-  showShortcuts() {
-    this.modalRef = this.modalService.openLarge(ShortcutModalComponent, true)
-  }
-
 }

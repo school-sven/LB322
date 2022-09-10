@@ -6,36 +6,35 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './services/routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LoggedOutComponent } from "./shared/logged-out/logged-out.component";
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from "@angular/forms";
-import { ShortcutModalComponent } from './modals/shortcut-modal/shortcut-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppointmentComponent } from './home/appointment/appointment.component';
 import { AppointmentTableComponent } from './home/appointment-table/appointment-table.component';
 import { PositionComponent } from './position/position.component';
 import { OpeningHoursComponent } from './opening-hours/opening-hours.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    LoggedOutComponent,
     LoginComponent,
-    ShortcutModalComponent,
     AppointmentComponent,
     AppointmentTableComponent,
     PositionComponent,
-    OpeningHoursComponent
+    OpeningHoursComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ModalModule
+    ModalModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [BsModalService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

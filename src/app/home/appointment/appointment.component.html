@@ -1,47 +1,108 @@
 <div class="card m-5">
-    <ng-container [formGroup]="form">
-        <div class="card-header">Termin
+  <ng-container [formGroup]="form">
+    <div class="card-header">Termin</div>
+    <div class="card-body">
+      <div class="card">
+        <div class="card-header">Datum und Uhrzeit</div>
+        <div class="card-body" formGroupName="appointment">
+          <div class="row">
+            <ng-container *ngFor="let field of appointmentFields">
+              <div class="col-lg-6 mb-2">
+                <label [for]="field.id" class="form-label">{{
+                  field.value
+                }}</label>
+                <input
+                  [formControlName]="field.control"
+                  [type]="field.type"
+                  class="form-control"
+                  [id]="field.id"
+                />
+              </div>
+            </ng-container>
+          </div>
         </div>
-        <div class="card-body">
-            <div class="card">
-                <div class="card-header">Datum und Uhrzeit
-                </div>
-                <div class="card-body" formGroupName="appointment">
-                    <div class="row">
-                        <ng-container *ngFor="let field of appointmentFields">
-                            <div class="col-lg-6 mb-2">
-                                <label [for]="field.id" class="form-label">{{ field.value }}</label>
-                                <input [formControlName]="field.control" [type]="field.type" class="form-control"
-                                    [id]="field.id">
-                            </div>
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-3">
-            <div class="card">
-                <div class="card-header">Patient
-                </div>
-                <div class="card-body" formGroupName="patient">
-                    <div class="row">
-                        <ng-container *ngFor="let patient of patientFields">
-                            <div class="col-lg-6 mb-2">
-                                <label [for]="patient.id" class="form-label">{{ patient.value }}</label>
-                                <input [formControlName]="patient.control" [type]="patient.type" class="form-control"
-                                    [id]="patient.id">
-                            </div>
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <hr class="my-3" />
+      <div class="card">
+        <div class="card-header">Patient</div>
+        <div class="card-body" formGroupName="patient">
+          <div class="row">
+            <ng-container *ngFor="let patient of patientFields">
+              <div class="col-lg-6 mb-2">
+                <label [for]="patient.id" class="form-label">{{
+                  patient.value
+                }}</label>
+                <input
+                  [formControlName]="patient.control"
+                  [type]="patient.type"
+                  class="form-control"
+                  [id]="patient.id"
+                />
+              </div>
+            </ng-container>
+          </div>
         </div>
-        <div class="card-footer" *ngIf="showData">
-            <button class="btn float-start" type="button" [routerLink]="['/home']">Zurück</button>
-            <button (click)="deleteAppointment()" class="btn btn-danger float-end" type="button">Termin löschen</button>
-        </div>
-        <div class="card-footer" *ngIf="!showData">
-            <button class="btn float-start" type="button" [routerLink]="['/home']">Zurück</button>
-            <button (click)="reserveAppointment()" [disabled]="form.invalid" class="btn btn-success float-end" type="button">Termin reservieren</button>
-        </div>
-    </ng-container>
+      </div>
+    </div>
+    <div class="card-footer" *ngIf="showData">
+      <button class="btn float-start" type="button" [routerLink]="['/home']">
+        Zurück
+      </button>
+      <button
+        class="btn btn-danger float-end"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#deleteAppointment"
+      >
+        Termin löschen
+      </button>
+    </div>
+    <div class="card-footer" *ngIf="!showData">
+      <button class="btn float-start" type="button" [routerLink]="['/home']">
+        Zurück
+      </button>
+      <button
+        (click)="reserveAppointment()"
+        [disabled]="form.invalid"
+        class="btn btn-success float-end"
+        type="button"
+      >
+        Termin reservieren
+      </button>
+    </div>
+  </ng-container>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="deleteAppointment"
+  tabindex="-1"
+  aria-labelledby="deleteAppointmentLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteAppointmentLabel">Termin löschen</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Möchten Sie den Termin definitv löschen?</div>
+      <div class="modal-footer">
+        <button
+          (click)="deleteAppointment()"
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          Bestätigen
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

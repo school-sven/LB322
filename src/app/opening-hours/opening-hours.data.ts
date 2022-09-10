@@ -29,12 +29,12 @@ export const openingHours: {
     afternoonTime: '13:30 - 16:00',
   },
   {
-    weekday: 'Saturday',
+    weekday: 'Samstag',
     forenoonTime: 'geschlossen',
     afternoonTime: 'geschlossen',
   },
   {
-    weekday: 'Sunday',
+    weekday: 'Sonntag',
     forenoonTime: 'geschlossen',
     afternoonTime: 'geschlossen',
   },

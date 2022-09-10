@@ -9,7 +9,7 @@
     <tbody>
         <ng-container *ngFor="let appointment of appointments; let i = index">
             <tr [routerLink]="['/termin', i+1]">
-                <td>{{ appointment.appointment.date }}</td>
+                <td>{{ appointment.appointment.date | date: 'dd.MM.yyyy' }}</td>
                 <td>{{ appointment.appointment.time }}</td>
                 <td>{{ appointment.patient.firstname }}</td>
                 <td>{{ appointment.patient.lastname }}</td>

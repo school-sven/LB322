@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { appointment } from 'src/app/shared/models/appointment.model';
+import { Appointment } from 'src/app/shared/models/appointment.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
-  appointments: appointment[] = [
+  appointments: Appointment[] = [
     {
       appointment: {
-        date: '10.10.2022',
+        date: '2022-10-10',
         time: '14:45'
       },
       patient: {
@@ -16,12 +16,12 @@ export class AppointmentService {
         lastname: 'Märki',
         mobile: '0797014710',
         email: 'sven.maerki@gmx.ch',
-        birthdate: '29.06.2005'
+        birthdate: '2005-06-29'
       }
     },
     {
       appointment: {
-        date: '09.09.2022',
+        date: '2022-09-09',
         time: '08:00'
       },
       patient: {
@@ -29,12 +29,12 @@ export class AppointmentService {
         lastname: 'Märki',
         mobile: '0797014710',
         email: 'sven.maerki@gmx.ch',
-        birthdate: '29.06.2005'
+        birthdate: '2005-06-29'
       }
     },
     {
       appointment: {
-        date: '12.11.2022',
+        date: '2022-11-12',
         time: '09:45'
       },
       patient: {
@@ -42,12 +42,12 @@ export class AppointmentService {
         lastname: 'Märki',
         mobile: '0797014710',
         email: 'sven.maerki@gmx.ch',
-        birthdate: '29.06.2005'
+        birthdate: '2005-06-29'
       }
     },
     {
       appointment: {
-        date: '15.10.2022',
+        date: '2022-10-15',
         time: '16:00'
       },
       patient: {
@@ -55,22 +55,22 @@ export class AppointmentService {
         lastname: 'Märki',
         mobile: '0797014710',
         email: 'sven.maerki@gmx.ch',
-        birthdate: '29.06.2005'
+        birthdate: '2005-06-29'
       }
     }
   ];
 
   get appointmentsGetter() {
-    return this.appointments as appointment[];
+    return this.appointments as Appointment[];
   }
 
   appointmentGetter(i: number) {
-    return this.appointments[i] as appointment;
+    return this.appointments[i] as Appointment;
   }
 
   constructor() {}
 
-  addAppointment(appointment: appointment) {
+  addAppointment(appointment: Appointment) {
     this.appointments.push(appointment);
   }
 

@@ -1,4 +1,4 @@
-export interface appointment {
+export interface Appointment {
     appointment: {
         date: string,
         time: string,

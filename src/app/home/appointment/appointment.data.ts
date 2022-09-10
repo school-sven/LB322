@@ -1,8 +1,8 @@
-import { appointment } from "src/app/shared/models/appointment.model"
+import { Appointment } from "src/app/shared/models/appointment.model"
 
 export const patientFields: {
     value: string,
-    control: keyof appointment["patient"],
+    control: keyof Appointment["patient"],
     id: string,
     type: string
 }[] = [
@@ -34,13 +34,13 @@ export const patientFields: {
         value: 'Geburtsdatum',
         control: 'birthdate',
         id: 'birthdate',
-        type: 'text'
+        type: 'date'
     }
 ]
 
 export const appointmentFields: {
     value: string,
-    control: keyof appointment["appointment"],
+    control: keyof Appointment["appointment"],
     id: string,
     type: string
 }[] = [
@@ -48,12 +48,12 @@ export const appointmentFields: {
         value: 'Datum',
         control: 'date',
         id: 'date',
-        type: 'text'
+        type: 'date'
     },
     {
         value: 'Zeit',
         control: 'time',
         id: 'time',
-        type: 'text'
+        type: 'time'
     },
 ]

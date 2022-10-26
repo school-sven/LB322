@@ -2,9 +2,8 @@ name: Lint Test
 
 on:
   push:
-    branches:
-      - "*"
-      - "!gh-pages"
+    branches-ignore:
+      - "gh-pages"
 
 env:
   NODE_VERSION: 16

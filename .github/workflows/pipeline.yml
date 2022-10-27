@@ -14,7 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Branch name
-        run: echo github.ref
+        run: echo ${{ github.ref == 'refs/heads/main' }}
+        
+      - name: Branch names
+        run: echo ${{ contains('
+          refs/heads/main
+          refs/heads/master'
+          , github.ref) }}
         
       - name: Install NodeJS
         uses: actions/setup-node@v2

@@ -12,16 +12,7 @@ jobs:
   linting:
     name: Linting
     runs-on: ubuntu-latest
-    steps:
-      - name: Branch name
-        run: echo ${{ github.ref == 'refs/heads/main' }}
-        
-      - name: Branch names
-        run: echo ${{ contains('
-          refs/heads/main
-          refs/heads/master'
-          , github.ref) }}
-        
+    steps:        
       - name: Install NodeJS
         uses: actions/setup-node@v2
         with:
@@ -74,12 +65,13 @@ jobs:
         run: ng test --watch=false --browsers=ChromeHeadless
 
   deploy:
-    runs-on: ubuntu-latest
+    name: Deploy
     needs: [linting, testing]
-    if: contains('
-      refs/heads/main
-      refs/heads/master'
-      , github.ref)
+    if: ${{ contains('
+          refs/heads/main
+          refs/heads/master'
+          , github.ref) }}
+    runs-on: ubuntu-latest
     steps:        
       - name: Checkout
         uses: actions/checkout@v3

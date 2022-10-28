@@ -34,7 +34,8 @@ import { NgModule } from '@angular/core';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [BsModalService]
+  providers: [BsModalService],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }
